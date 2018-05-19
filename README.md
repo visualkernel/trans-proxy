@@ -24,18 +24,19 @@
 
 - 数据结构
 
-代理socket
 ```
+//代理socket
 struct proxy_socket {
-        int efd;     //当前代理Socket
+        int efd;     //事件监控句柄
         int type;    //socket的类型(监听，连接，传输)
-        int from_fd; //数据发起端
-        int to_fd;   //数据接收端
+        int from_fd; //数据来源socket
+        int to_fd;   //数据接收socket
 };
 ```
 
-socket类型
+
 ```
+//socket类型
 enum proxy_socket_type {
         PROXY_SOCKET_LISTEN,  //处于监听状态 
         PROXY_SOCKET_CONN,    //处理连接状态(未完成三次握手)
